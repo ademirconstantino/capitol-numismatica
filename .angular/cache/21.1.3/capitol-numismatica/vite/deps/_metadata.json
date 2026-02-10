@@ -1,0 +1,34 @@
+{
+  "hash": "31a2b2d8",
+  "configHash": "29abdfa0",
+  "lockfileHash": "dbe02aea",
+  "browserHash": "42f9a0ed",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "1d006551",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "14be7a4b",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "0fd9e608",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IBY33OMF": {
+      "file": "chunk-IBY33OMF.js"
+    },
+    "chunk-WBPFHICS": {
+      "file": "chunk-WBPFHICS.js"
+    }
+  }
+}
