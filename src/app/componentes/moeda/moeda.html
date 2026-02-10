@@ -1,0 +1,14 @@
+<section class="moeda-card">
+  <div class="imagem">
+    <img src="{{ moeda().imagem || 'sem-moeda.svg' }}" alt="{{ moeda().nome }}">
+  </div>
+  <div class="info-moeda">
+    <h3 class="nome">{{ moeda().nome }}</h3>
+    <p class="detalhes">{{ moeda().pais }} — {{ moeda().ano }} — {{ moeda().metal }}</p>
+    <p class="condicao" *ngIf="moeda().condicao">{{ moeda().condicao }}</p>
+
+    <button class="favorito" (click)="alternarFavorito()">
+      {{ moeda().favorito ? '★ Favorito' : '☆ Favoritar' }}
+    </button>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<section class="colecao">
+  <h2 class="titulo">Minha Coleção de Moedas</h2>
+  <span class="linha-destaque"></span>
+
+  @for (categoria of generos; track categoria) {
+    <section class="categoria" [attr.data-id]="categoria.id">
+      <h3 class="categoria-titulo">{{ categoria.value }}</h3>
+      <div class="moedas-lista">
+        @for (moeda of categoria.moedas; track moeda) {
+          <app-moeda [moeda]="moeda"></app-moeda>
+        }
+      </div>
+    </section>
+  }
+</section>
