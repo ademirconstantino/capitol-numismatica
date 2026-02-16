@@ -2,129 +2,73 @@ import { IMoeda } from './componentes/moeda/moeda';
 
 export const mockMoedas: IMoeda[] = [
   {
-    nome: 'Moeda 1 Real - 1994',
-    pais: 'Brasil',
-    ano: 1994,
-    metal: 'Aço inoxidável',
+    nome: 'Moeda Vaticano',
+    pais: 'Vaticano | UE',
+    ano: 1951,
+    metal: 'Aluminio',
     condicao: 'Ótima',
     favorito: false,
     categoria: {
-      id: 'comemorativas',
-      value: 'Comemorativas',
+      id: 'europa',
+      value: 'Europa',
       moedas: []
     },
-    imagem: ''
+    imagem: 'vatican.png'
   },
     {
-    nome: 'Moeda 50 Centavos - 1994',
-    pais: 'Brasil',
-    ano: 1994,
+    nome: '100 Lire',
+    pais: 'Italia',
+    ano: 1993,
     metal: 'Aço inoxidável',
     condicao: 'Ótima',
     favorito: false,
     categoria: {
-      id: 'comemorativas',
-      value: 'Comemorativas',
+      id: 'europa',
+      value: 'Europa',
       moedas: []
     },
-    imagem: ''
+    imagem: 'lira100.png'
   },
     {
-    nome: 'Moeda 2 Reais - 1994',
-    pais: 'Brasil',
-    ano: 1994,
-    metal: 'Aço inoxidável',
+    nome: '10 centimes',
+    pais: 'França',
+    ano: 1977,
+    metal: 'Cobre',
     condicao: 'Ótima',
     favorito: false,
     categoria: {
-      id: 'comemorativas',
-      value: 'Comemorativas',
+      id: 'europa',
+      value: 'Europa',
       moedas: []
     },
-    imagem: ''
+    imagem: '20centimes.png'
   },
       {
-    nome: 'Moeda 2 Reais - 1994',
-    pais: 'Brasil',
+    nome: '100 Pesetas',
+    pais: 'Espanha',
     ano: 1994,
     metal: 'Aço inoxidável',
-    condicao: 'Ótima',
+    condicao: 'Boa',
     favorito: false,
     categoria: {
-      id: 'comemorativas',
-      value: 'Comemorativas',
+      id: 'europa',
+      value: 'Europa',
       moedas: []
     },
-    imagem: ''
+    imagem: '100pesetas.png'
   },
       {
-    nome: 'Moeda 2 Reais - 1994',
-    pais: 'Brasil',
-    ano: 1994,
-    metal: 'Aço inoxidável',
+    nome: '200 Lire',
+    pais: 'Italia',
+    ano: 1979,
+    metal: 'Cobre',
     condicao: 'Ótima',
     favorito: false,
     categoria: {
-      id: 'comemorativas',
-      value: 'Comemorativas',
+      id: 'europa',
+      value: 'Europa',
       moedas: []
     },
-    imagem: ''
-  },
-  {
-    nome: 'Dólar Morgan - 1885',
-    pais: 'Estados Unidos',
-    ano: 1885,
-    metal: 'Prata',
-    condicao: 'Muito boa',
-    favorito: true,
-    categoria: {
-      id: 'antigas',
-      value: 'Antigas',
-      moedas: []
-    },
-    imagem: ''
-  },
-  {
-    nome: 'Florim Português - 1910',
-    pais: 'Portugal',
-    ano: 1910,
-    metal: 'Bronze',
-    condicao: 'Conservada',
-    favorito: false,
-    categoria: {
-      id: 'historicas',
-      value: 'Históricas',
-      moedas: []
-    },
-    imagem: ''
-  },
-  {
-    nome: 'Florim Português - 1910',
-    pais: 'Portugal',
-    ano: 1910,
-    metal: 'Bronze',
-    condicao: 'Conservada',
-    favorito: false,
-    categoria: {
-      id: 'historicas',
-      value: 'Históricas',
-      moedas: []
-    },
-    imagem: ''
-  },
-  {
-    nome: 'Florim Português - 1910',
-    pais: 'Portugal',
-    ano: 1910,
-    metal: 'Bronze',
-    condicao: 'Conservada',
-    favorito: false,
-    categoria: {
-      id: 'historicas',
-      value: 'Históricas',
-      moedas: []
-    },
-    imagem: ''
+    imagem: '200lire.png'
   }
 ];

@@ -1,6 +1,5 @@
 .colecao {
   width: 100%;
-  max-width: 1100px;
 }
 
 .titulo {
@@ -22,4 +21,5 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 12px;
+  background-color: #CCCCCC;
 }
