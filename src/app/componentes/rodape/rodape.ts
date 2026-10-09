@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { creditosImagens } from '../../creditos-imagens';
 
 @Component({
   selector: 'app-rodape',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './rodape.css',
   standalone: true
 })
-export class Rodape {}
+export class Rodape {
+  readonly creditos = creditosImagens;
+  readonly ano = new Date().getFullYear();
+}

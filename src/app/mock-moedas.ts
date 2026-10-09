@@ -1,119 +1,50 @@
-import { IMoeda } from './componentes/moeda/moeda';
+import { ICategoria, IMoeda } from './componentes/moeda/moeda';
+
+export const categorias: Record<string, ICategoria> = {
+  europa: { id: 'europa', value: 'Europa', moedas: [] },
+  americas: { id: 'americas', value: 'Américas', moedas: [] },
+  asia: { id: 'asia', value: 'Ásia', moedas: [] },
+};
 
 export const mockMoedas: IMoeda[] = [
-  {
-    nome: 'Moeda Vaticano',
-    pais: 'Vaticano',
-    ano: 1951,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: 'vatican.png'
-  },
-  {
-    nome: '100 Lire',
-    pais: 'Italia',
-    ano: 1993,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: 'lira100.png'
-  },
-  {
-    nome: '10 centimes',
-    pais: 'França',
-    ano: 1977,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: '20centimes.png'
-  },
-  {
-    nome: '100 Pesetas',
-    pais: 'Espanha',
-    ano: 1994,
-    metal: 'Padrao',
-    condicao: 'Boa',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: '100pesetas.png'
-  },
-  {
-    nome: '200 Lire',
-    pais: 'Italia',
-    ano: 1979,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: '200lire.png'
-  }
-  ,
-  {
-    nome: '100 Lire',
-    pais: 'Italia',
-    ano: 1981,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: '100lire.png'
-  }
-  ,
-  {
-    nome: '2 Dinares',
-    pais: 'Iugoslávia',
-    ano: 2002,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: 'yoguslavia1.png'
-  }
-  ,
-  {
-    nome: '10 Pence',
-    pais: 'United Kingdom',
-    ano: 1995,
-    metal: 'Padrao',
-    condicao: 'Ótima',
-    favorito: false,
-    categoria: {
-      id: 'europa',
-      value: 'Europa',
-      moedas: []
-    },
-    imagem: '10pence.png'
-  }
+  { id: 1, nome: '5 Lire', pais: 'Vaticano', ano: 1951, metal: 'Alumínio', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'vatican.png' },
+  { id: 2, nome: '100 Lire', pais: 'Itália', ano: 1993, metal: 'Aço inox', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'lira100.png' },
+  { id: 3, nome: '10 Centimes', pais: 'França', ano: 1977, metal: 'Alumínio-bronze', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: '20centimes.png' },
+  { id: 4, nome: '100 Pesetas', pais: 'Espanha', ano: 1994, metal: 'Alumínio-bronze', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: '100pesetas.png' },
+  { id: 5, nome: '200 Lire', pais: 'Itália', ano: 1979, metal: 'Alumínio-bronze', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: '200lire.png' },
+  { id: 6, nome: '100 Lire', pais: 'Itália', ano: 1981, metal: 'Aço inox', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: '100lire.png' },
+  { id: 7, nome: '2 Dinares', pais: 'Iugoslávia', ano: 2002, metal: 'Cupro-níquel-zinco', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'yoguslavia1.png' },
+  { id: 8, nome: '10 Pence', pais: 'Reino Unido', ano: 1995, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: '10pence.png' },
+  { id: 9, nome: '10 Pfennig', pais: 'Alemanha', ano: 1991, metal: 'Aço cobreado', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/10pfennig.webp' },
+  { id: 10, nome: '1 Mark', pais: 'Alemanha Oriental', ano: 1979, metal: 'Alumínio', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1mark-ddr.webp' },
+  { id: 11, nome: '1 Franc', pais: 'França', ano: 1964, metal: 'Níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1franc.webp' },
+  { id: 12, nome: '5 Francs', pais: 'França', ano: 1970, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/5francs.webp' },
+  { id: 13, nome: '25 Cent', pais: 'Holanda', ano: 1971, metal: 'Níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/25cent-nl.webp' },
+  { id: 14, nome: '5 Gulden', pais: 'Holanda', ano: 1989, metal: 'Bronze', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/5gulden.webp' },
+  { id: 15, nome: '1 Franc', pais: 'Bélgica', ano: 1996, metal: 'Níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1franc-be.webp' },
+  { id: 16, nome: '5 Escudos', pais: 'Portugal', ano: 1990, metal: 'Latão-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/5escudos.webp' },
+  { id: 17, nome: '100 Escudos', pais: 'Portugal', ano: 1992, metal: 'Bimetálica', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/100escudos.webp' },
+  { id: 18, nome: '1 Schilling', pais: 'Áustria', ano: 1973, metal: 'Alumínio-bronze', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1schilling.webp' },
+  { id: 19, nome: '1 Krone', pais: 'Dinamarca', ano: 1966, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1krone-dk.webp' },
+  { id: 20, nome: '1 Krona', pais: 'Suécia', ano: 1990, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1krona-se.webp' },
+  { id: 21, nome: '1 Krone', pais: 'Noruega', ano: 1940, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1krone-no.webp' },
+  { id: 22, nome: '1 Markka', pais: 'Finlândia', ano: 1976, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1markka.webp' },
+  { id: 23, nome: '1 Franc', pais: 'Suíça', ano: 1968, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1franc-ch.webp' },
+  { id: 24, nome: '1 Rublo', pais: 'União Soviética', ano: 1985, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1rublo.webp' },
+  { id: 25, nome: '20 Forint', pais: 'Hungria', ano: 1985, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/20forint.webp' },
+  { id: 26, nome: '2 Koruny', pais: 'Tchecoslováquia', ano: 1972, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/2korun.webp' },
+  { id: 27, nome: '10 New Pence', pais: 'Reino Unido', ano: 1975, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/10newpence.webp' },
+  { id: 28, nome: '1 Peseta', pais: 'Espanha', ano: 1966, metal: 'Alumínio-bronze', condicao: 'Boa', favorito: false, categoria: categorias['europa'], imagem: 'moedas/1peseta.webp' },
+  { id: 29, nome: '100 Pesetas', pais: 'Espanha', ano: 1966, metal: 'Prata', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/100pesetas-1966.webp' },
+  { id: 30, nome: '500 Lire', pais: 'Itália', ano: 1960, metal: 'Prata', condicao: 'Ótima', favorito: false, categoria: categorias['europa'], imagem: 'moedas/500lire.webp' },
+  { id: 31, nome: '1 Real', pais: 'Brasil', ano: 1998, metal: 'Bimetálica', condicao: 'Ótima', favorito: false, categoria: categorias['americas'], imagem: 'moedas/1real.webp' },
+  { id: 32, nome: '1 Cruzeiro', pais: 'Brasil', ano: 1975, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['americas'], imagem: 'moedas/1cruzeiro-1975.webp' },
+  { id: 33, nome: '1 Cruzeiro', pais: 'Brasil', ano: 1957, metal: 'Alumínio-bronze', condicao: 'Boa', favorito: false, categoria: categorias['americas'], imagem: 'moedas/1cruzeiro-1957.webp' },
+  { id: 34, nome: 'Quarter Dollar', pais: 'Estados Unidos', ano: 1977, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['americas'], imagem: 'moedas/quarter.webp' },
+  { id: 35, nome: '1 Peso', pais: 'Chile', ano: 1976, metal: 'Cupro-níquel', condicao: 'Boa', favorito: false, categoria: categorias['americas'], imagem: 'moedas/1peso-cl.webp' },
+  { id: 36, nome: '10 Pesos', pais: 'Argentina', ano: 1962, metal: 'Aço niquelado', condicao: 'Boa', favorito: false, categoria: categorias['americas'], imagem: 'moedas/10pesos-ar.webp' },
+  { id: 37, nome: '1000 Pesos', pais: 'Uruguai', ano: 1969, metal: 'Prata', condicao: 'Ótima', favorito: false, categoria: categorias['americas'], imagem: 'moedas/1000pesos-uy.webp' },
+  { id: 38, nome: '100 Yen', pais: 'Japão', ano: 1967, metal: 'Cupro-níquel', condicao: 'Ótima', favorito: false, categoria: categorias['asia'], imagem: 'moedas/100yen.webp' },
+  { id: 39, nome: '1 Rupee', pais: 'Índia', ano: 1997, metal: 'Aço inox', condicao: 'Boa', favorito: false, categoria: categorias['asia'], imagem: 'moedas/1rupee.webp' },
+  { id: 40, nome: '5 Cents', pais: 'Straits Settlements', ano: 1926, metal: 'Prata', condicao: 'Boa', favorito: false, categoria: categorias['asia'], imagem: 'moedas/5cent-straits.webp' },
 ];

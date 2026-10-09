@@ -1,7 +1,65 @@
 .rodape {
-  background: #111;
-  color: #ddd;
-  padding: 12px 0;
-  margin-top: 24px;
+  padding: 48px 0 32px;
+  background: #0a0908;
+  border-top: 1px solid var(--card-borda);
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.topo p {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--texto);
+}
+
+.logo {
+  width: auto;
+  height: 40px;
+}
+
+.creditos {
+  padding: 16px 0;
+  border-top: 1px solid var(--card-borda);
+  border-bottom: 1px solid var(--card-borda);
+}
+
+.creditos summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--texto);
+}
+
+.creditos ul {
+  columns: 2 320px;
+  column-gap: 32px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.creditos li {
+  break-inside: avoid;
+}
+
+a {
+  color: var(--dourado);
+  overflow-wrap: anywhere;
+}
+
+.copyright {
+  margin: 24px 0 0;
+  font-size: 13px;
   text-align: center;
 }

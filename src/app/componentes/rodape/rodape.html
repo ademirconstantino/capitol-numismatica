@@ -1,5 +1,27 @@
-<footer class="rodape">
+<footer class="rodape" id="creditos">
   <div class="container">
-    <p>© 2026 - Capitol Numismatica - Todos os direitos reservados</p>
+    <div class="topo">
+      <img src="assets/logo.png" alt="Capitol Numismática" class="logo" width="460" height="220" />
+      <p>Colecionando a história, uma moeda de cada vez.</p>
+    </div>
+
+    <details class="creditos">
+      <summary>Créditos das imagens ({{ creditos.length }})</summary>
+      <p>
+        Parte das fotografias foi obtida no
+        <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
+        e é usada conforme a licença de cada arquivo. As imagens foram recortadas e redimensionadas.
+      </p>
+      <ul>
+        @for (c of creditos; track c.imagem) {
+          <li>
+            <a [href]="c.url" target="_blank" rel="noopener">{{ c.arquivo }}</a>
+            — {{ c.autor }} · {{ c.licenca }}
+          </li>
+        }
+      </ul>
+    </details>
+
+    <p class="copyright">© {{ ano }} Capitol Numismática — Todos os direitos reservados</p>
   </div>
 </footer>

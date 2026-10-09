@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-moeda',
@@ -8,13 +8,14 @@ import { Component, input } from '@angular/core';
 })
 export class Moeda {
   moeda = input.required<IMoeda>();
+  favorito = input(false);
 
-  alternarFavorito() {
-    this.moeda().favorito = !this.moeda().favorito;
-  }
+  alternarFavorito = output<IMoeda>();
+  abrir = output<IMoeda>();
 }
 
 export interface IMoeda {
+  id: number;
   nome: string;
   pais: string;
   ano: number | string;

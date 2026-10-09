@@ -1,61 +1,161 @@
+:host {
+  display: block;
+}
+
 .moeda-card {
-  width: 240px;
-  background: var(--card);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 8px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 22px 18px 20px;
+  background: linear-gradient(180deg, var(--card) 0%, var(--bg-elevado) 100%);
+  border: 1px solid var(--card-borda);
+  border-radius: var(--raio);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.imagem img {
-  width: 140px;
-  height: 140px;
+.moeda-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 164, 92, 0.45);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(201, 164, 92, 0.12);
+}
+
+.vitrine {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 200px;
+  padding: 10%;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #2d2925 0%, #1a1816 62%, transparent 72%);
+  cursor: zoom-in;
+}
+
+.vitrine img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 6px;
-  background: #fafafa;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.65));
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.moeda-card:hover .vitrine img {
+  transform: scale(1.08) rotate(-8deg);
 }
 
 .info-moeda {
+  width: 100%;
+  margin-top: 14px;
   text-align: center;
 }
 
-.nome {
-  font-size: 16px;
-  margin: 8px 0 4px;
+.ano {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--dourado);
 }
 
-.detalhes, .condicao {
-  font-size: 13px;
-  color: #555;
-  margin: 2px 0;
+.nome {
+  margin: 4px 0 2px;
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.pais {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.selo {
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--card-borda);
+  color: var(--texto-suave);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.selo-condicao.otima {
+  color: var(--dourado-claro);
+  border-color: rgba(201, 164, 92, 0.4);
 }
 
 .favorito {
-  margin-top: 10px;
-  padding: 6px 10px;
-  background: #555
-  color: white;
-  border: none;
-  background-color: #c0c0c0;
-  border-radius: 6px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  border: 1px solid var(--card-borda);
+  border-radius: 50%;
+  background: rgba(14, 13, 12, 0.7);
+  color: var(--texto-suave);
   cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
-@media (max-width: 600px) {
-.moeda-card {
-  width: 300px;
-  background: var(--card);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 8px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.favorito:hover {
+  color: var(--dourado-claro);
+  transform: scale(1.08);
 }
+
+.favorito.ativo {
+  color: var(--dourado-claro);
+  border-color: var(--dourado);
+  background: rgba(201, 164, 92, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moeda-card,
+  .vitrine img {
+    transition: none;
+  }
+
+  .moeda-card:hover .vitrine img {
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .moeda-card {
+    padding: 16px 10px 14px;
+  }
+
+  .nome {
+    font-size: 21px;
+  }
+
+  .selo {
+    padding: 3px 8px;
+    font-size: 10.5px;
+  }
+
+  .favorito {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
 }

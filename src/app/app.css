@@ -1,17 +1,9 @@
-:root {
-  --bg: #000000;
-  --card: #ffffff;
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
-  color: #222;
-}
-
-.app-root main {
-  padding: 24px;
+.app-root {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

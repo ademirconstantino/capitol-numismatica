@@ -1,15 +1,138 @@
-<section class="colecao">
-  <h2 class="titulo">Nosso acervo:</h2>
-  <span class="linha-destaque"></span>
+<section class="colecao container">
+  <header class="intro">
+    <div>
+      <p class="sobretitulo">Nosso acervo</p>
+      <h2 class="titulo">Moedas que contam a história do mundo</h2>
+    </div>
+    <dl class="numeros">
+      <div>
+        <dt>Moedas</dt>
+        <dd>{{ totalMoedas }}</dd>
+      </div>
+      <div>
+        <dt>Países</dt>
+        <dd>{{ totalPaises }}</dd>
+      </div>
+      <div>
+        <dt>Desde</dt>
+        <dd>{{ maisAntiga }}</dd>
+      </div>
+    </dl>
+  </header>
 
-  @for (categoria of generos; track categoria) {
-    <section class="categoria" [attr.data-id]="categoria.id">
-      <h3 class="categoria-titulo">{{ categoria.value }}</h3>
+  <div class="ferramentas">
+    <div class="filtros" role="tablist" aria-label="Filtrar por continente">
+      <button
+        role="tab"
+        class="chip"
+        [class.ativo]="categoriaAtiva() === 'todas'"
+        [attr.aria-selected]="categoriaAtiva() === 'todas'"
+        (click)="categoriaAtiva.set('todas')"
+      >
+        Todas <span class="contagem">{{ contarCategoria('todas') }}</span>
+      </button>
+      @for (categoria of categorias; track categoria.id) {
+        <button
+          role="tab"
+          class="chip"
+          [class.ativo]="categoriaAtiva() === categoria.id"
+          [attr.aria-selected]="categoriaAtiva() === categoria.id"
+          (click)="categoriaAtiva.set(categoria.id)"
+        >
+          {{ categoria.value }} <span class="contagem">{{ contarCategoria(categoria.id) }}</span>
+        </button>
+      }
+      <button
+        class="chip chip-favoritos"
+        [class.ativo]="soFavoritos()"
+        [attr.aria-pressed]="soFavoritos()"
+        (click)="soFavoritos.set(!soFavoritos())"
+      >
+        ★ Favoritos <span class="contagem">{{ favoritos().size }}</span>
+      </button>
+    </div>
+
+    <div class="busca-ordem">
+      <label class="busca">
+        <span class="visualmente-oculto">Buscar moeda</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Buscar por nome, país, ano ou metal…"
+          [value]="busca()"
+          (input)="busca.set($any($event.target).value)"
+        />
+      </label>
+
+      <label class="ordem">
+        <span class="visualmente-oculto">Ordenar</span>
+        <select [value]="ordenacao()" (change)="ordenacao.set($any($event.target).value)">
+          <option value="ano-asc">Mais antigas primeiro</option>
+          <option value="ano-desc">Mais recentes primeiro</option>
+          <option value="nome">Nome</option>
+          <option value="pais">País</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  @for (grupo of grupos(); track grupo.id) {
+    <section class="categoria" [attr.data-id]="grupo.id">
+      <div class="categoria-cabecalho">
+        <h3 class="categoria-titulo">{{ grupo.value }}</h3>
+        <span class="linha"></span>
+        <span class="categoria-total">
+          {{ grupo.moedas.length }} {{ grupo.moedas.length === 1 ? 'moeda' : 'moedas' }}
+        </span>
+      </div>
       <div class="moedas-lista">
-        @for (moeda of categoria.moedas; track moeda) {
-          <app-moeda [moeda]="moeda"></app-moeda>
+        @for (moeda of grupo.moedas; track moeda.id) {
+          <app-moeda
+            [moeda]="moeda"
+            [favorito]="favoritos().has(moeda.id)"
+            (alternarFavorito)="alternarFavorito($event)"
+            (abrir)="abrirDetalhe($event)"
+          ></app-moeda>
         }
       </div>
     </section>
+  } @empty {
+    <div class="vazio">
+      <p>Nenhuma moeda encontrada com esses filtros.</p>
+      <button class="chip ativo" (click)="limparFiltros()">Limpar filtros</button>
+    </div>
   }
 </section>
+
+@if (selecionada(); as moeda) {
+  <div class="detalhe-fundo" (click)="fecharDetalhe()">
+    <div
+      class="detalhe"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="moeda.nome"
+      (click)="$event.stopPropagation()"
+    >
+      <button class="fechar" (click)="fecharDetalhe()" aria-label="Fechar">×</button>
+      <img [src]="moeda.imagem || 'sem-moeda.svg'" [alt]="moeda.nome" />
+      <div class="detalhe-info">
+        <p class="sobretitulo">{{ moeda.categoria.value }} · {{ moeda.ano }}</p>
+        <h3>{{ moeda.nome }}</h3>
+        <dl>
+          <div><dt>País</dt><dd>{{ moeda.pais }}</dd></div>
+          <div><dt>Ano</dt><dd>{{ moeda.ano }}</dd></div>
+          <div><dt>Metal</dt><dd>{{ moeda.metal }}</dd></div>
+          @if (moeda.condicao) {
+            <div><dt>Condição</dt><dd>{{ moeda.condicao }}</dd></div>
+          }
+        </dl>
+        <button class="chip" [class.ativo]="favoritos().has(moeda.id)" (click)="alternarFavorito(moeda)">
+          {{ favoritos().has(moeda.id) ? '★ Nos favoritos' : '☆ Adicionar aos favoritos' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

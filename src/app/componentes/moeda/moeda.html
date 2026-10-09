@@ -1,14 +1,36 @@
-<section class="moeda-card">
-  <div class="imagem">
-    <img src="{{ moeda().imagem || 'sem-moeda.svg' }}" alt="{{ moeda().nome }}">
-  </div>
-  <div class="info-moeda">
-    <h3 class="nome">{{ moeda().nome }}</h3>
-    <p class="detalhes">{{ moeda().pais }} — {{ moeda().ano }} — {{ moeda().metal }}</p>
-    <p class="condicao" *ngIf="moeda().condicao">{{ moeda().condicao }}</p>
+<article class="moeda-card">
+  <button
+    class="favorito"
+    [class.ativo]="favorito()"
+    (click)="alternarFavorito.emit(moeda())"
+    [attr.aria-pressed]="favorito()"
+    [attr.aria-label]="favorito() ? 'Remover dos favoritos' : 'Adicionar aos favoritos'"
+  >
+    {{ favorito() ? '★' : '☆' }}
+  </button>
 
-    <button class="favorito" (click)="alternarFavorito()">
-      {{ moeda().favorito ? '★ Favorito' : '☆ Favoritar' }}
-    </button>
+  <button class="vitrine" (click)="abrir.emit(moeda())" [attr.aria-label]="'Ampliar ' + moeda().nome">
+    <img
+      [src]="moeda().imagem || 'sem-moeda.svg'"
+      [alt]="moeda().nome + ' — ' + moeda().pais + ', ' + moeda().ano"
+      loading="lazy"
+      width="200"
+      height="200"
+    />
+  </button>
+
+  <div class="info-moeda">
+    <p class="ano">{{ moeda().ano }}</p>
+    <h3 class="nome">{{ moeda().nome }}</h3>
+    <p class="pais">{{ moeda().pais }}</p>
+
+    <div class="selos">
+      <span class="selo">{{ moeda().metal }}</span>
+      @if (moeda().condicao) {
+        <span class="selo selo-condicao" [class.otima]="moeda().condicao === 'Ótima'">
+          {{ moeda().condicao }}
+        </span>
+      }
+    </div>
   </div>
-</section>
+</article>
